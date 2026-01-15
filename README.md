@@ -1,163 +1,131 @@
-🚗 ft_linear_regression
+# 🚗 ft_linear_regression  
+**Apprendre le Machine Learning à partir de zéro en prédisant le prix des voitures**
 
-Learning Machine Learning from scratch
+Une implémentation simple et claire d’un **modèle de Machine Learning construit from scratch** pour prédire le prix d’une voiture à partir de son kilométrage.
 
-📌 What is this project?
+Ce projet met l’accent sur la **compréhension du fonctionnement de l’apprentissage**, et non sur l’utilisation de bibliothèques « boîte noire ».
 
-This project is a simple and practical introduction to Machine Learning.
+---
 
-The goal is to build a small program that can predict the price of a car based on its mileage.
+## ✨ Ce que fait ce projet
 
-If we know how much a car was driven in the past and how much it was sold for, we can use this information to teach a computer to make new predictions.
+Ce projet apprend à un ordinateur à :
+- observer des ventes de voitures passées  
+- comprendre la relation entre le kilométrage et le prix  
+- prédire le prix d’une nouvelle voiture jamais vue auparavant  
 
-That is exactly what this project does.
+Il utilise l’une des techniques les plus fondamentales du machine learning : **la régression linéaire**.
 
-🧠 What does “machine learning” mean?
+---
 
-Machine learning means letting a computer learn from examples instead of giving it fixed rules.
+## 🧠 Qu’est-ce que le Machine Learning ?
 
-Instead of saying:
+Le machine learning consiste à **ne pas donner de règles fixes à l’ordinateur**.
 
-“If the mileage is high, the price is low”
+Au lieu d’écrire :
+> « Si le kilométrage est élevé, le prix est bas »
 
-we give the computer many real examples:
+on donne à l’ordinateur beaucoup d’exemples et on le laisse **découvrir la règle par lui-même**.
 
-mileage
+Plus il voit d’exemples, meilleur il devient.
 
-real price
+---
 
-and let it discover the rule by itself.
+## 📈 Qu’est-ce que la régression linéaire ?
 
-The more examples it sees, the better it becomes.
+La régression linéaire est une manière pour une machine d’apprendre une **tendance**.
 
-📈 What is linear regression?
+Dans ce projet, la tendance est :
+> comment le prix d’une voiture change quand le kilométrage augmente.
 
-Linear regression is one of the simplest ways for a computer to learn.
+Le modèle trouve une droite qui représente le mieux cette relation et l’utilise pour faire des prédictions.
 
-It tries to find a straight line that best connects:
+---
 
-how much a car was driven
+## ❌ Comment le modèle sait qu’il se trompe ?
 
-how much it costs
+Chaque prédiction est comparée au vrai prix.
 
-Once that line is found, the computer can use it to:
+Si la prédiction est loin de la réalité, le modèle sait qu’il a fait une erreur.
 
-estimate the price of any new car
+L’entraînement consiste simplement à :
+> réduire ces erreurs petit à petit.
 
-even if it has never seen it before
+---
 
-So instead of memorizing prices, the model understands the trend.
+## 🔁 Comment l’apprentissage fonctionne-t-il ?
 
-❌ How does the computer know it is wrong?
+Le processus d’apprentissage se déroule ainsi :
 
-Every time the model makes a prediction, we can compare it to the real price.
+1. Le modèle fait une prédiction  
+2. Il mesure à quel point elle est fausse  
+3. Il s’ajuste légèrement  
+4. Il recommence  
 
-If the predicted price is far from the real price, the model knows:
+En répétant cela de nombreuses fois, le modèle devient de plus en plus précis.
 
-“I made a big mistake.”
+C’est ainsi que l’ordinateur apprend.
 
-The goal of learning is simply:
+---
 
-make these mistakes smaller and smaller.
+## 🧭 Qu’est-ce que le Gradient Descent ?
 
-🔁 How does learning happen?
+Le gradient descent est la méthode utilisée pour améliorer le modèle.
 
-The computer starts with a very bad guess.
+Cela signifie :
+> faire de petits pas dans la direction qui réduit les erreurs.
 
-Then it repeats this process:
+Comme descendre une colline dans le brouillard :
+on ne voit pas le bas, mais on avance toujours dans la direction qui descend.
 
-Make predictions
+À la fin, on atteint la meilleure solution possible.
 
-Measure how wrong they are
+---
 
-Adjust itself a little
+## 📊 Pourquoi mettre les données à l’échelle ?
 
-Try again
+Les valeurs de kilométrage peuvent être très grandes (100 000 km, 200 000 km, etc).
 
-Each step makes the predictions better.
+De grands nombres rendent l’apprentissage instable et lent.
 
-After many repetitions, the model slowly becomes accurate.
+On met donc les données à l’échelle pour que le modèle apprenne :
+- plus vite  
+- plus régulièrement  
+- plus efficacement  
 
-This process is called training.
+C’est une pratique standard en machine learning.
 
-🧭 Why gradient descent?
+---
 
-Gradient descent is just a fancy name for:
+## ⚙️ Comment ça marche
 
-“Try to improve a little bit every time.”
+### 1. Entraînement
+Le programme d’entraînement :
+- lit le jeu de données  
+- apprend la relation entre kilométrage et prix  
+- sauvegarde ce qu’il a appris  
 
-The model looks at its mistakes and slightly changes how it predicts so that the next predictions are closer to the truth.
+### 2. Prédiction
+Le programme de prédiction :
+- charge le modèle appris  
+- demande un kilométrage  
+- affiche un prix estimé  
 
-It’s like walking down a hill in the dark:
+On entraîne une fois, puis on peut prédire autant de fois qu’on veut.
 
-you feel the slope
+---
 
-you step in the direction that goes down
+## 🎯 Pourquoi ce projet est important
 
-eventually you reach the bottom
+Ce projet enseigne les bases de :
+- comment les machines apprennent  
+- comment les données deviennent des prédictions  
+- comment les erreurs guident l’amélioration  
 
-The bottom is the best possible model.
+Ces mêmes idées sont utilisées dans :
+- les systèmes d’IA  
+- les moteurs de recommandation  
+- les voitures autonomes  
+- et les modèles modernes de deep learning  
 
-📊 Why do we scale the data?
-
-Mileage numbers can be very large (100,000 km, 200,000 km…).
-
-If we give these big numbers directly to the computer, learning becomes unstable and slow.
-
-So we first scale the data to smaller values so the model learns:
-
-faster
-
-more smoothly
-
-more reliably
-
-This is an important real-world machine learning technique.
-
-🗂 Project structure
-
-This project is split into two main parts:
-
-Training program
-
-This program:
-
-reads the dataset
-
-learns the relationship between mileage and price
-
-saves what it learned
-
-Prediction program
-
-This program:
-
-loads what was learned
-
-asks for a mileage
-
-prints the estimated price
-
-The model is trained once, then reused many times.
-
-🎯 Why this project is important
-
-This project teaches the foundations of:
-
-how machines learn
-
-how data becomes predictions
-
-how errors guide learning
-
-These ideas are the same ones used in:
-
-AI systems
-
-self-driving cars
-
-recommendation systems
-
-and even ChatGPT
-
-This is where it all starts.
+C’est ici que le machine learning commence.
